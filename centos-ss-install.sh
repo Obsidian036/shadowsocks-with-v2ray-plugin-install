@@ -35,13 +35,13 @@ set_domain(){
     echo "If you don't have one, you can register one for free at:"
     echo "https://my.freenom.com/clientarea.php"
     read domain
-    str=`echo $domain | gawk '/^([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/{print $0}'`
+    str=`echo $domain | gawk '/^([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,6})$/{print $0}'`
     while [ ! -n "${str}" ]
     do
         echo -e "\033[1;31mInvalid domain.\033[0m"
         echo -e "\033[1;31mPlease try again:\033[0m"
         read domain
-        str=`echo $domain | gawk '/^([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/{print $0}'`
+        str=`echo $domain | gawk '/^([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,6})$/{print $0}'`
     done
     echo -e "\033[1;35mdomain = ${domain}\033[0m"
 }
